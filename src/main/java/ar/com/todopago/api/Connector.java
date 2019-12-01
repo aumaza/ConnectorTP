@@ -41,10 +41,32 @@ public class Connector extends TodoPagoConector{
     
     public static void main(String[] args) throws MalformedURLException{
         
+        //se crea el mapa de autorizacion
         Map<String, List<String>> auth = new HashMap<String, List<String>>();
         auth.put(ElementNames.Authorization, Collections.singletonList("PRISMA f3d8b72c94ab4a06be2ef7c95490f7d3"));
+        
+        //se crea el conector a todo pago
         TodoPagoConector tpc = new TodoPagoConector(TodoPagoConector.developerEndpoint,auth);
-        System.out.println("tpc");
+        
+        //Se crea el mapa de parámetros para validar y se inicializan los parametros
+        Map<String, String> parameters = new HashMap<String,String>();
+        parameters.put(ElementNames.Session, "ABCDEF-1234-12221-FDE1-00000200");
+        parameters.put(ElementNames.Security,  "1234567890ABCDEF1234567890ABCDEF");
+        parameters.put(ElementNames.EncodingMethod, "XML");
+        parameters.put(ElementNames.Merchant, "123456778");
+        parameters.put(ElementNames.OperationID, "0800");
+        parameters.put(ElementNames.CurrencyCode, "032");
+        parameters.put(ElementNames.Amount, "1.00");
+        parameters.put(ElementNames.UrlOK, "http,//someur1.com/ok/");
+        parameters.put(ElementNames.UrlError, "http,//someur1.com/fail/");
+        parameters.put(ElementNames.EMAILCLIENTE, "some@smoeurl.com");
+        
+                
+        
+        
+        Map<String, Object> a = tpc.sendAuthorizeRequest(parameters, getFraudControlParameters());
+        
+//System.out.println("tpc");
     }
 
     
