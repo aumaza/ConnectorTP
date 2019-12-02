@@ -47,6 +47,9 @@ public class Connector extends TodoPagoConector{
         
         //se crea el conector a todo pago
         TodoPagoConector tpc = new TodoPagoConector(TodoPagoConector.developerEndpoint,auth);
+       
+        
+        
         
         //Se crea el mapa de parámetros para validar y se inicializan los parametros
         Map<String, String> parameters = new HashMap<String,String>();
@@ -62,15 +65,12 @@ public class Connector extends TodoPagoConector{
         parameters.put(ElementNames.EMAILCLIENTE, "some@smoeurl.com");
         
         Map<String, Object> d = tpc.getStatus(getSParameters());
+        Map<String, Object> e = tpc.discoverPaymentMethods();
+                
+        //System.out.println("" + d);
+        System.out.println("Metodos de Pago: " + e);
+        //System.out.println("Estado: " + check); 
         
-        
-        
-        //Map<String, Object> a = tpc.sendAuthorizeRequest(parameters, getFraudControlParameters());
-        
-        System.out.println("TPC" + tpc);
-        System.out.println("Parameters" + parameters);
-        
-        System.out.println("" + d);
                 
     }
     
