@@ -61,13 +61,16 @@ public class Connector extends TodoPagoConector{
         parameters.put(ElementNames.UrlError, "http,//someur1.com/fail/");
         parameters.put(ElementNames.EMAILCLIENTE, "some@smoeurl.com");
         
-                
+        Map<String, Object> d = tpc.getStatus(getSParameters());
+        
         
         
         //Map<String, Object> a = tpc.sendAuthorizeRequest(parameters, getFraudControlParameters());
         
         System.out.println("TPC" + tpc);
         System.out.println("Parameters" + parameters);
+        
+        System.out.println("" + d);
                 
     }
     
@@ -123,6 +126,13 @@ public class Connector extends TodoPagoConector{
         return null;
        
 }
+    
+    private static Map<String, String> getSParameters(){
+	Map<String, String> parameters = new HashMap<String, String>();
+	parameters.put("Merchant", "12345678");
+	parameters.put("OperationID", "8000");
+	return parameters;
+}	
 
     
     
