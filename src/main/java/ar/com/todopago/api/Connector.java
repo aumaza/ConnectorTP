@@ -64,9 +64,11 @@ public class Connector extends TodoPagoConector{
                 
         
         
-        Map<String, Object> a = tpc.sendAuthorizeRequest(parameters, getFraudControlParameters());
+        //Map<String, Object> a = tpc.sendAuthorizeRequest(parameters, getFraudControlParameters());
         
-//System.out.println("tpc");
+        System.out.println("TPC" + tpc);
+        System.out.println("Parameters" + parameters);
+                
     }
     
     private static Map<String, String> getFraudControlParameters() {

@@ -59,6 +59,6 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="sun.cpu.isalist" value=""/>
   </properties>
-  <testcase classname="main.GetAllPaymentMethodsTest" name="getAllPaymentMethodsOKTest" time="0.001"/>
-  <testcase classname="main.GetAllPaymentMethodsTest" name="getAllPaymentMethodsErrorTest" time="0.002"/>
+  <testcase classname="main.GetAllPaymentMethodsTest" name="getAllPaymentMethodsOKTest" time="0.004"/>
+  <testcase classname="main.GetAllPaymentMethodsTest" name="getAllPaymentMethodsErrorTest" time="0.001"/>
 </testsuite>
